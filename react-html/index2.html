@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!--  创建dom根结点 -->
+    <div id="app"></div>
+
+
+
+    <script type="text/babel">
+        let first = 'hello'
+        let last = 'world'
+        let obj = {
+            name:'zc',
+            age: 18
+        }
+        function getName(obj){
+            return `你的名字是 ${obj.name},年龄是 ${obj.age}`
+        }
+        let word =(
+            <div>
+                <h3>{first}</h3>
+                <h3>{last}</h3>
+                <h1>{getName(obj)}</h1>
+           </div>
+        )
+        ReactDOM.render(word,document.getElementById('app'))
+    </script>
+</body>
+
+</html>
