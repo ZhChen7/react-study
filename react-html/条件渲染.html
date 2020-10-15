@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!--  创建dom根结点 -->
+    <div id="app"></div>
+
+    <script type="text/babel">
+        
+        class Com extends React.Component{
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    msg : true
+                }
+                
+            }
+
+            handle(){
+                this.setState({
+                    msg: !this.state.msg
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>{
+                            this.state.msg?
+                            '哈哈': '谢谢'
+                        }</h1>  
+                        
+                        <button onClick={()=>this.handle()}>点击</button>
+                    </div> 
+                )
+
+            }
+            
+        }
+
+
+        ReactDOM.render(<Com/>,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

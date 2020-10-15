@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/@babel/standalone/babel.min.js"></script>
+    <script src="node_modules/prop-types/prop-types.js"></script>
+</head>
+
+<body>
+    <!--  创建dom根结点 -->
+    <div id="app"></div>
+    <script type="text/babel">
+        function Com(props){
+            return (
+                <div>
+                    <p>{props.msg}</p>
+                    <p>{props.age}</p>
+                </div>
+                
+            )
+        }
+        Com.defaultProps = {
+            msg :'默认值'
+        }
+
+        Com.propTypes = {
+            msg : PropTypes.number,
+            age:PropTypes.number.isRequired
+        }
+
+        ReactDOM.render(<Com msg = {'1111'} age = {18}/>,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

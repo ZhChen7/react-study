@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="node_modules/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <!--  创建dom根结点 -->
+    <div id="app"></div>
+
+    <script type="text/babel">
+      class Demoa extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>我的demoa ---- {this.props.msg}</h1>
+            </div>
+          );
+        }
+      }
+      class Demob extends React.Component {
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>我的demob  ---- {this.props.msg}</h1>
+            </div>
+          );
+        }
+      }
+
+      class Com1 extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+              msg: '我是2个组件都用的数据'
+          }
+        }
+
+
+        handle(){
+            this.setState({
+                msg:'我被修改了'
+            })
+        }
+        render() {
+          return (
+            <div>
+              <h1>我是组件</h1>
+              <Demoa msg = {this.state.msg}/>
+              <Demob msg = {this.state.msg}/>
+              <button onClick = {()=>this.handle()}>修改</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Com1 />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
