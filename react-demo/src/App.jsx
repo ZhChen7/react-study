@@ -3,6 +3,15 @@ import img1 from "../src/assets/1.jpg";
 import Home from "./Home";
 import Hello from "./Hello";
 import Test from "./Test";
+import RouterTest from "./RouterTest";
+import {
+  Route,
+  Link,
+  NavLink,
+  Switch,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +19,12 @@ class App extends Component {
     this.state = {
       num: 1,
     };
+  }
+
+  componentDidMount() {
+    this.props.history.listen((link) => {
+      console.log(link);
+    });
   }
 
   onClickHandle = (props) => {
@@ -23,10 +38,30 @@ class App extends Component {
       <div>
         {/* <Home msg={this.state.num} onClickHandle={this.onClickHandle} /> */}
         {/* <Hello /> */}
-        <Test />
+        {/* <Test /> */}
+        {/* <RouterTest /> */}
+
+        <Link to="/home">点我去home</Link>
+        <Link to="/hello">点我去hello</Link>
+        <Link to={{
+            pathname:'/test',
+            query:{name:'zc'}
+          }}>点我去test</Link>
+        <button onClick={() => this.props.history.push("/test")}>
+          点我去test
+        </button>
+
+        <Switch>
+          {/* <Route path="/" exact component={Home} /> */}
+          <Route path="/home/:id"  component={Home} />
+          <Route path="/home"  component={Home} />
+          <Route path="/hello" exact component={Hello} />
+          <Route path='/test' component={Test} />
+          <Redirect from="/" to="/hello" exact></Redirect>
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

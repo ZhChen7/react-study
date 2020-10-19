@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class Test extends Component {
-  componentDidMount() {
-    this.ajaxFun();
+   componentDidMount() {
+     this.ajaxFun();
+     console.log(this.props.location.query);
   }
 
   ajaxFun = () => {
