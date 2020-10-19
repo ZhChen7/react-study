@@ -4,6 +4,7 @@ import Home from "./Home";
 import Hello from "./Hello";
 import Test from "./Test";
 import RouterTest from "./RouterTest";
+import Hook from "./Hook";
 import {
   Route,
   Link,
@@ -43,20 +44,24 @@ class App extends Component {
 
         <Link to="/home">点我去home</Link>
         <Link to="/hello">点我去hello</Link>
-        <Link to={{
-            pathname:'/test',
-            query:{name:'zc'}
-          }}>点我去test</Link>
+        <Link
+          to={{
+            pathname: "/test",
+            query: { name: "zc" },
+          }}
+        >
+          点我去test
+        </Link>
         <button onClick={() => this.props.history.push("/test")}>
           点我去test
         </button>
-
+        <Hook />
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/home/:id"  component={Home} />
-          <Route path="/home"  component={Home} />
+          <Route path="/home/:id" component={Home} />
+          <Route path="/home" component={Home} />
           <Route path="/hello" exact component={Hello} />
-          <Route path='/test' component={Test} />
+          <Route path="/test" component={Test} />
           <Redirect from="/" to="/hello" exact></Redirect>
         </Switch>
       </div>
