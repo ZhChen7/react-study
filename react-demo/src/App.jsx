@@ -5,6 +5,7 @@ import Hello from "./Hello";
 import Test from "./Test";
 import RouterTest from "./RouterTest";
 import Hook from "./Hook";
+import Hook1 from "./Hook1";
 import {
   Route,
   Link,
@@ -42,7 +43,7 @@ class App extends Component {
         {/* <Test /> */}
         {/* <RouterTest /> */}
 
-        <Link to="/home">点我去home</Link>
+        {/* <Link to="/home">点我去home</Link>
         <Link to="/hello">点我去hello</Link>
         <Link
           to={{
@@ -54,8 +55,9 @@ class App extends Component {
         </Link>
         <button onClick={() => this.props.history.push("/test")}>
           点我去test
-        </button>
-        <Hook />
+        </button> */}
+        {/* <Hook /> */}
+        <Hook1 />
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/home/:id" component={Home} />

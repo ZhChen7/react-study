@@ -1,25 +1,41 @@
-import React, { Component, useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
-function Hook() {
-  // 声明一个叫 “count” 的 state 变量。
-  const [count, setCount] = useState(0);
+const Hook = () => {
+  const [count, setCount] = useState({
+    name: "zc",
+    age: 18,
+  });
+  const [arr, setArr] = useState([1, 2, 3]);
+  const [func, setFunc] = useState(() => {
+    return 1;
+  });
 
-
-  useEffect(()=>{
-    console.log('hello Hook');
-  })
-
-  const handle= (props)=>{
-    setCount(count + 1)
-    console.log(props);
-  }
-
+  const handle = () => {
+    setCount({ 
+      ...count,
+      age: count.age + 1,
+    });
+  };
   return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={handle}>click me</button>
-    </div>
+    <>
+      <h1>{count.name}</h1>
+      <h1>{count.age}</h1>
+      <h1>{arr}</h1>
+      <h1>{func}</h1>
+      <button onClick={handle}>增加</button>
+      <button
+        onClick={() => {
+          setArr(() => {
+            arr.push(4);
+            return [...arr];
+          });
+        }}
+      >
+        增加
+      </button>
+    </>
   );
-}
+};
+
 export default Hook;
