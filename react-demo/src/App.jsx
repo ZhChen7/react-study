@@ -6,6 +6,11 @@ import Test from "./Test";
 import RouterTest from "./RouterTest";
 import Hook from "./Hook";
 import Hook1 from "./Hook1";
+import Hook2 from "./Hook2";
+import HookUseCallbak from "./HookUseCallbak";
+import HookuseContext from "./HookuseContext";
+import HookuseLayoutEffect from "./HookuseLayoutEffect";
+
 import {
   Route,
   Link,
@@ -42,7 +47,6 @@ class App extends Component {
         {/* <Hello /> */}
         {/* <Test /> */}
         {/* <RouterTest /> */}
-
         {/* <Link to="/home">点我去home</Link>
         <Link to="/hello">点我去hello</Link>
         <Link
@@ -57,14 +61,18 @@ class App extends Component {
           点我去test
         </button> */}
         {/* <Hook /> */}
-        <Hook1 />
+        {/* <Hook1 /> */}
+        {/* <HookuseContext /> */}
+        {/* <Hook2 /> */}
+        {/* <HookUseCallbak /> */}
+        <HookuseLayoutEffect />
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/home/:id" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/hello" exact component={Hello} />
           <Route path="/test" component={Test} />
-          <Redirect from="/" to="/hello" exact></Redirect>
+          {/* <Redirect from="/" to="/hello" exact></Redirect> */}
         </Switch>
       </div>
     );
