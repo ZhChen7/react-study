@@ -7,6 +7,7 @@ import RouterTest from "./RouterTest";
 import Hook from "./Hook";
 import Hook1 from "./Hook1";
 import Hook2 from "./Hook2";
+import Hook3 from "./Hook3";
 import HookUseCallbak from "./HookUseCallbak";
 import HookuseContext from "./HookuseContext";
 import HookuseLayoutEffect from "./HookuseLayoutEffect";
@@ -65,7 +66,8 @@ class App extends Component {
         {/* <HookuseContext /> */}
         {/* <Hook2 /> */}
         {/* <HookUseCallbak /> */}
-        <HookuseLayoutEffect />
+        {/* <HookuseLayoutEffect /> */}
+        <Hook3 />
         <Switch>
           {/* <Route path="/" exact component={Home} /> */}
           <Route path="/home/:id" component={Home} />
